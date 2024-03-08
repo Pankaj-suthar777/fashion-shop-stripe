@@ -6,7 +6,7 @@ const Hero = () => {
     <section className="hero is-large is-info hero-image">
       <div className="hero-body">
         <div className="container">
-          <h1 className="title">bags reimageined for morden life.</h1>
+          <h1 className="hero-title">bags reimageined for morden life.</h1>
           <div className="shop-now-btn">
             <button className="button is-black" id="shop-now">
               SHOP NOW
