@@ -1,18 +1,19 @@
+import { Route, Routes } from "react-router-dom";
 import "./App.scss";
-import FeaturedCollection from "./components/featured-collection/featured-collection";
-import Footer from "./components/footer/footer";
-import Header from "./components/header/header";
-import Hero from "./components/hero/hero";
-import MainSection from "./components/main-section/main-section";
+import HomePage from "./components/HomePage";
+import NotFound from "./components/NotFound";
+import Shop from "./components/pages/shop/shop";
+import SingleProduct from "./components/single-product/SingleProduct";
 
 function App() {
   return (
     <div className="App">
-      <Header />
-      <Hero />
-      <MainSection />
-      <FeaturedCollection />
-      <Footer />
+      <Routes>
+        <Route path="/" Component={HomePage} />
+        <Route path="/shop" Component={Shop} />
+        <Route path="/shop/:id" Component={SingleProduct} />
+        <Route path="*" Component={NotFound} />
+      </Routes>
     </div>
   );
 }
