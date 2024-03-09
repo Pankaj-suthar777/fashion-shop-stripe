@@ -1,13 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import SHOP_DATA from "../../shop";
 import { useParams } from "react-router-dom";
 import Layout from "../shared/layout";
 import "./SingleProduct.scss";
+import { isInCart } from "../../helper";
+import { CartContext } from "../../context/cart-context";
 
 const SingleProduct = () => {
   const { id } = useParams();
   const product = SHOP_DATA.find((product) => product.id === Number(id));
-  console.log(product);
+  const { addProduct, cartItems, increase } = useContext(CartContext);
   return (
     <Layout>
       <div className="single-product-conatainer">
@@ -20,13 +22,28 @@ const SingleProduct = () => {
             <p>$ {product?.price}</p>
           </div>
           <div className="add-to-cart-btns">
-            <button
-              className="button is-white nomad-btn"
-              id="btn-white-outline"
-              style={{ width: "100%" }}
-            >
-              ADD TO CART
-            </button>
+            {!isInCart(product, cartItems) ? (
+              <button
+                className="button is-white nomad-btn"
+                id="btn-white-outline"
+                style={{ width: "100%" }}
+                onClick={() => addProduct(product)}
+              >
+                ADD TO CART
+              </button>
+            ) : (
+              <button
+                className="button is-white nomad-btn"
+                id="btn-white-outline"
+                style={{ width: "100%" }}
+                onClick={() => {
+                  increase(product);
+                }}
+              >
+                ADD MORE
+              </button>
+            )}
+
             <button
               className="button is-black nomad-btn"
               id="btn-white-outline"

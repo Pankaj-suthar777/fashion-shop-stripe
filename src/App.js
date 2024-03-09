@@ -4,6 +4,7 @@ import HomePage from "./components/HomePage";
 import NotFound from "./components/NotFound";
 import Shop from "./components/pages/shop/shop";
 import SingleProduct from "./components/single-product/SingleProduct";
+import CartPage from "./components/pages/cart/CartPage";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Route path="/" Component={HomePage} />
         <Route path="/shop" Component={Shop} />
         <Route path="/shop/:id" Component={SingleProduct} />
+        <Route path="/cart" Component={CartPage} />
         <Route path="*" Component={NotFound} />
       </Routes>
     </div>
