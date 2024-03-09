@@ -6,7 +6,15 @@ import CartItems from "./CartItems";
 import Total from "./total";
 
 const CartPage = () => {
-  const { cartItems, itemCount, total } = useContext(CartContext);
+  const {
+    cartItems,
+    itemCount,
+    total,
+    increase,
+    decrease,
+    removeProduct,
+    clearCart,
+  } = useContext(CartContext);
   return (
     <Layout>
       <>
@@ -18,10 +26,20 @@ const CartPage = () => {
             <div className="cart-page">
               <div className="cart-item-container">
                 {cartItems.map((item) => (
-                  <CartItems product={item} key={item.id} />
+                  <CartItems
+                    product={item}
+                    key={item.id}
+                    increase={increase}
+                    decrease={decrease}
+                    removeProduct={removeProduct}
+                  />
                 ))}
               </div>
-              <Total itemCount={itemCount} total={total} />
+              <Total
+                itemCount={itemCount}
+                total={total}
+                clearCart={clearCart}
+              />
             </div>
           </>
         )}

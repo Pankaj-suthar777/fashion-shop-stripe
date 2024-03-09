@@ -1,13 +1,13 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-const Total = ({ itemCount, total }) => {
+const Total = ({ itemCount, total, clearCart }) => {
   const navigate = useNavigate();
   return (
     <div className="total-container">
       <div className="total">
         <p>Total Items : {itemCount}</p>
-        <p>{`Total: ${total}`}</p>
+        <p>{`Total: $${total}`}</p>
       </div>
       <div className="checkout">
         <button
@@ -18,7 +18,12 @@ const Total = ({ itemCount, total }) => {
         >
           CHECKOUT
         </button>
-        <button className="button is-white" onClick={() => {}}>
+        <button
+          className="button is-white"
+          onClick={() => {
+            clearCart();
+          }}
+        >
           CLEAR CART
         </button>
       </div>

@@ -1,4 +1,10 @@
+const storeCartIems = (cartItems) => {
+  const cart = cartItems.length > 0 ? cartItems : [];
+  localStorage.setItem("cart", JSON.stringify(cart));
+};
+
 export const sumItems = (cartItems) => {
+  storeCartIems(cartItems);
   return {
     itemCount: cartItems.reduce(
       (total, product) => total + product.quantity,
@@ -30,13 +36,42 @@ const cartReducer = (state, action) => {
       const increaseIndex = state.cartItems.findIndex(
         (item) => item.id === action.payload.id
       );
-      console.log(increaseIndex);
       state.cartItems[increaseIndex].quantity++;
       return {
         ...state,
         cartItems: [...state.cartItems],
         ...sumItems(state.cartItems),
       };
+    case "DECREASE":
+      const decreaseIndex = state.cartItems.findIndex(
+        (item) => item.id === action.payload.id
+      );
+      const product = state.cartItems[decreaseIndex];
+      if (product.quantity > 1) {
+        product.quantity--;
+      }
+      return {
+        ...state,
+        cartItems: [...state.cartItems],
+        ...sumItems(state.cartItems),
+      };
+    case "REMOVE_ITEM":
+      const newCartItems = state.cartItems.filter(
+        (item) => item.id !== action.payload.id
+      );
+      return {
+        ...state,
+        cartItems: [...newCartItems],
+        ...sumItems(newCartItems),
+      };
+    case "CLEAR":
+      localStorage.removeItem("cart");
+      return {
+        cartItems: [],
+        itemCount: 0,
+        total: 0,
+      };
+
     default:
       return state;
   }
