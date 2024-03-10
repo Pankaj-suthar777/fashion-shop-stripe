@@ -15,7 +15,7 @@ app.use(
 );
 app.use(cors({ origin: true }));
 
-app.get("/", (req, res) => res.send("Hello World"));
+
 
 app.post("/create-checkout-session", createCheckoutSession);
 
