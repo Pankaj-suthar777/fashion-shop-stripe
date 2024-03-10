@@ -24,7 +24,8 @@ function webhook(req, res) {
     event = stripeAPI.webhooks.constructEvent(
       req["rawBody"],
       sig,
-      "whsec_06bf5fc1324a955d8f99d8fd4a1109598f8f530e76e2b21d641d4cd979c3646a"
+      //"whsec_06bf5fc1324a955d8f99d8fd4a1109598f//8f530e76e2b21d641d4cd979c3646a"
+"whsec_4sb2jBiG4OgGiV6PCWE4krF88KTjJOyA"
     );
   } catch (error) {
     return res.status(400).send(`Webhook error ${error.message}`);
