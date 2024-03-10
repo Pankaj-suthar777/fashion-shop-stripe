@@ -1,7 +1,8 @@
 const stripeAPI = require("../stripe");
 
 async function createCheckoutSession(req, res) {
-  const domianUrl = "http://localhost:3000";
+  //const domianUrl = "http://localhost:3000";
+const domianUrl = "https://fashion-shop-stripe.onrender.com"
   const { line_items, customer_email } = req.body;
   // check req body has line items and email
   if (!line_items || !customer_email) {
