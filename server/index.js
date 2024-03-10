@@ -1,7 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const createCheckoutSession = require("./api/checkout");
-require("dotenv")
+require("dotenv").config();
 const webhook = require("./api/webhook");
 const paymentIntent = require("./api/paymentIntent");
 
