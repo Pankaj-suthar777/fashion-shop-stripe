@@ -19,11 +19,10 @@ const Success = () => {
           We are currently processing your order and will send you a
           confirmation email shortyly
         </p>
-        <div
-          className="button is-black nomad-btn submit"
-          onClick={() => navigate("/shop")}
-        >
-          <button>Continue Shopping</button>
+        <div onClick={() => navigate("/shop")}>
+          <button className="button is-black nomad-btn submit">
+            Continue Shopping
+          </button>
         </div>
       </div>
     </Layout>
