@@ -5,6 +5,7 @@ import Layout from "../shared/layout";
 import "./SingleProduct.scss";
 import { isInCart } from "../../helper";
 import { CartContext } from "../../context/cart-context";
+import toast from "react-hot-toast";
 
 const SingleProduct = () => {
   const { id } = useParams();
@@ -27,7 +28,10 @@ const SingleProduct = () => {
                 className="button is-white nomad-btn"
                 id="btn-white-outline"
                 style={{ width: "100%" }}
-                onClick={() => addProduct(product)}
+                onClick={() => {
+                  toast.success("Item added to cart");
+                  addProduct(product);
+                }}
               >
                 ADD TO CART
               </button>
@@ -37,6 +41,7 @@ const SingleProduct = () => {
                 id="btn-white-outline"
                 style={{ width: "100%" }}
                 onClick={() => {
+                  toast.success("Quantity increased by 1");
                   increase(product);
                 }}
               >

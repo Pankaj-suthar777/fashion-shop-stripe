@@ -4,6 +4,7 @@
 @import "../node_modules/bulma/sass/elements/button.sass";
 @import "../node_modules/bulma/sass/elements/container.sass";
 @import "../node_modules/bulma/sass/layout/hero.sass";
+@import "../node_modules/bulma/sass/components/dropdown.sass";
 
 .app {
   position: relative;
@@ -35,6 +36,12 @@ img {
   }
   .featured-image {
     cursor: pointer;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .featured-collection {
+    padding: 1.5rem;
   }
 }
 
@@ -112,7 +119,7 @@ form {
   margin-bottom: 1rem;
 }
 
-#buy-it0now-btn {
+#buy-it-now-btn {
   &:hover {
     background-color: #606060;
   }

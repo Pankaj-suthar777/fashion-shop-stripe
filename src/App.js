@@ -8,21 +8,25 @@ import CartPage from "./components/pages/cart/CartPage";
 import Checkout from "./components/checkout/checkout";
 import Success from "./components/checkout/stripe-checkout/success";
 import Cancelled from "./components/checkout/stripe-checkout/cancelled";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   return (
-    <div className="App">
-      <Routes>
-        <Route path="/" Component={HomePage} />
-        <Route path="/shop" Component={Shop} />
-        <Route path="/shop/:id" Component={SingleProduct} />
-        <Route path="/cart" Component={CartPage} />
-        <Route path="/checkout" Component={Checkout} />
-        <Route path="/success" Component={Success} />
-        <Route path="/canceled" Component={Cancelled} />
-        <Route path="*" Component={NotFound} />
-      </Routes>
-    </div>
+    <>
+      <Toaster position="top-center" reverseOrder={false} />
+      <div className="App">
+        <Routes>
+          <Route path="/" Component={HomePage} />
+          <Route path="/shop" Component={Shop} />
+          <Route path="/shop/:id" Component={SingleProduct} />
+          <Route path="/cart" Component={CartPage} />
+          <Route path="/checkout" Component={Checkout} />
+          <Route path="/success" Component={Success} />
+          <Route path="/canceled" Component={Cancelled} />
+          <Route path="*" Component={NotFound} />
+        </Routes>
+      </div>
+    </>
   );
 }
 

@@ -1,4 +1,5 @@
 import React from "react";
+import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 
 const Total = ({ itemCount, total, clearCart }) => {
@@ -21,6 +22,7 @@ const Total = ({ itemCount, total, clearCart }) => {
         <button
           className="button is-white"
           onClick={() => {
+            toast.success("Cart cleared");
             clearCart();
           }}
         >

@@ -9,7 +9,7 @@ const CartIcon = () => {
   const navigate = useNavigate();
   return (
     <div className="cart-container" onClick={() => navigate("/cart")}>
-      <img src={shoppingBag} alt="shoopin-cart-img" />
+      <img src={shoppingBag} alt="shoopin-cart-img" className="img" />
       {itemCount > 0 ? <span className="cart-count">{itemCount}</span> : null}
     </div>
   );

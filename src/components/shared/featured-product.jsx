@@ -3,6 +3,7 @@ import "./featured-product-style.scss";
 import { useNavigate } from "react-router-dom";
 import { CartContext } from "../../context/cart-context";
 import { isInCart } from "../../helper";
+import toast from "react-hot-toast";
 
 const FeaturedProduct = ({ product }) => {
   const { title, imageurl, price, id } = product;
@@ -21,7 +22,10 @@ const FeaturedProduct = ({ product }) => {
           <button
             className="button is-black nomad-btn"
             style={{ width: "100%" }}
-            onClick={() => addProduct(product)}
+            onClick={() => {
+              toast.success("Item added to cart");
+              addProduct(product);
+            }}
           >
             ADD TO CART
           </button>
@@ -30,7 +34,10 @@ const FeaturedProduct = ({ product }) => {
           <button
             className="button is-white nomad-btn"
             style={{ width: "100%" }}
-            onClick={() => increase(product)}
+            onClick={() => {
+              toast.success("Quantity increased by 1");
+              increase(product);
+            }}
           >
             ADD MORE
           </button>

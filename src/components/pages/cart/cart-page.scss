@@ -73,3 +73,12 @@ h1,
     }
   }
 }
+
+@media screen and (max-width: 500px) {
+  .total-container {
+    text-align: center;
+  }
+  .total {
+    margin-bottom: 15px;
+  }
+}
