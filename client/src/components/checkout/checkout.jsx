@@ -22,12 +22,12 @@ const Checkout = () => {
         <h2>Checkout Summary</h2>
         <h3>{`Total items: ${itemCount}`}</h3>
         <h4>{`Amount to Pay: $${total}`}</h4>
-        {/* <StripeCheckout /> */}
+        <StripeCheckout />
         <div style={addressShown}>
           <ShippingAddress setShipping={setShipping} />
         </div>
         <div style={cardShown}>
-          <CustomCheckout shipping={shipping} cartItems={cartItems} />
+        {/*  <CustomCheckout shipping={shipping} cartItems={cartItems} /> */}
         </div>
       </div>
     </Layout>
