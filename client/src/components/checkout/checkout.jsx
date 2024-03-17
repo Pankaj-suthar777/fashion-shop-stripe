@@ -24,7 +24,7 @@ const Checkout = () => {
         <h4>{`Amount to Pay: $${total}`}</h4>
         <StripeCheckout />
         <div style={addressShown}>
-          <ShippingAddress setShipping={setShipping} />
+           {/*   <ShippingAddress setShipping={setShipping} /> */}
         </div>
         <div style={cardShown}>
         {/*  <CustomCheckout shipping={shipping} cartItems={cartItems} /> */}
